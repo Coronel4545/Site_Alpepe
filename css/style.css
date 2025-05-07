@@ -729,9 +729,23 @@ footer {
 /* Estilo para a seção Dashboard */
 
 .dashboard-section {
-    
+    background: #fdf5e6; /* Fundo com tom de pergaminho */
     padding: 50px 20px;
     text-align: center;
+}
+
+.dashboard-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #4b3f2f;
+    margin-bottom: 20px;
+}
+
+.dashboard-section p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #4b3f2f;
+    margin-bottom: 30px;
 }
 
 .dashboard-item {
@@ -771,19 +785,64 @@ footer {
     .dashboard-item {
         width: 45%; /* Ajusta para duas colunas */
     }
+
+    .dashboard-section h2 {
+        font-size: 1.8rem; /* Reduz o tamanho do título */
+    }
+
+    .dashboard-section p {
+        font-size: 1.1rem; /* Reduz o tamanho do texto */
+    }
 }
 
 /* Responsividade para telas pequenas (máx. 768px) */
 @media (max-width: 768px) {
     .dashboard-item {
         width: 100%; /* Ajusta para uma coluna */
+        margin: 15px 0; /* Adiciona espaçamento vertical */
+    }
+
+    .dashboard-section h2 {
+        font-size: 1.6rem; /* Reduz o tamanho do título */
+    }
+
+    .dashboard-section p {
+        font-size: 1rem; /* Reduz o tamanho do texto */
     }
 
     .dashboard-item h2 {
-        font-size: 1.2rem; /* Reduz o tamanho do texto */
+        font-size: 1.3rem; /* Reduz o tamanho do texto nos itens */
     }
 
     .dashboard-item span {
-        font-size: 1rem;
+        font-size: 1rem; /* Ajusta o tamanho do texto nos spans */
+    }
+}
+
+/* Responsividade para telas muito pequenas (máx. 480px) */
+@media (max-width: 480px) {
+    .dashboard-section {
+        padding: 30px 10px; /* Reduz o padding geral */
+    }
+
+    .dashboard-section h2 {
+        font-size: 1.4rem; /* Reduz ainda mais o tamanho do título */
+    }
+
+    .dashboard-section p {
+        font-size: 0.9rem; /* Reduz o tamanho do texto */
+    }
+
+    .dashboard-item {
+        padding: 15px; /* Reduz o padding interno */
+        margin: 10px 0; /* Ajusta o espaçamento entre os itens */
+    }
+
+    .dashboard-item h2 {
+        font-size: 1.2rem; /* Reduz o tamanho do texto nos itens */
+    }
+
+    .dashboard-item span {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto nos spans */
     }
 }
