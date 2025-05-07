@@ -633,19 +633,31 @@ footer {
 }
 
 .roadmap-item {
-    background: #fdf5e6;
+    background: #fdf5e6; /* Fundo claro */
     border: 2px solid #d4af37; /* Borda dourada */
-    border-radius: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
     padding: 20px;
     width: 22%; /* Largura padrão para itens em telas grandes */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.6s ease, box-shadow 0.6s ease, background 0.3s ease; /* Suaviza a transição */
+    perspective: 1000px; /* Adiciona perspectiva para efeitos 3D */
+    transform-style: preserve-3d; /* Garante que o efeito 3D seja aplicado */
+    cursor: pointer; /* Indica que o item é interativo */
 }
 
 .roadmap-item:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: rotateY(10deg) scale(1.05); /* Adiciona rotação e zoom ao passar o mouse */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Realça a sombra */
+    background: #d4af37; /* Altera o fundo para dourado */
+    color: #fdf5e6; /* Altera a cor do texto */
+}
+
+.roadmap-item:active {
+    transform: rotateY(0deg) scale(0.95); /* Reduz o tamanho ao clicar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduz a sombra */
+    background: #b8860b; /* Fundo dourado mais escuro */
+    color: #ffffff; /* Texto branco */
 }
 
 .roadmap-item h3 {
@@ -725,15 +737,27 @@ footer {
 }
 
 
-
 /* Estilo para a seção Dashboard */
-
 .dashboard-section {
-    background: #fdf5e6; /* Fundo com tom de pergaminho */
     padding: 50px 20px;
     text-align: center;
 }
 
+.dashboard-header {
+    width: 100%; /* Ocupa 100% da largura */
+    background: none; /* Remove o fundo */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.dashboard-header h2 {
+    font-family: 'Cinzel', serif; /* Fonte medieval */
+    font-size: 2rem; /* Tamanho do texto */
+    color: #4b3f2f; /* Cor do texto */
+    margin: 0; /* Remove margens extras */
+}
+
+/* Container para os itens do Dashboard */
 .dashboard-section .container {
     display: flex;
     flex-wrap: wrap; /* Permite que os itens quebrem linha */
@@ -772,6 +796,10 @@ footer {
 
 /* Responsividade para telas médias (máx. 1024px) */
 @media (max-width: 1024px) {
+    .dashboard-header h2 {
+        font-size: 1.8rem; /* Reduz o tamanho do texto */
+    }
+
     .dashboard-item {
         width: 45%; /* Ajusta para duas colunas */
     }
@@ -779,6 +807,10 @@ footer {
 
 /* Responsividade para telas pequenas (máx. 768px) */
 @media (max-width: 768px) {
+    .dashboard-header h2 {
+        font-size: 1.6rem; /* Reduz ainda mais o tamanho do texto */
+    }
+
     .dashboard-item {
         width: 100%; /* Ajusta para uma coluna */
     }
