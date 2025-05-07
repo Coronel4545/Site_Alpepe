@@ -1,32 +1,37 @@
-const audio = document.querySelector('audio');
-const targetSection = document.getElementById('sobre');
-let userInteracted = false;
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.querySelector('audio');
+    const targetSection = document.getElementById('sobre');
+    let audioPlayed = false; // Garante que o áudio toque apenas uma vez
 
-// Detecta interação do usuário (clique ou toque)
-const enableAudioPlayback = () => {
-    userInteracted = true;
-    document.removeEventListener('click', enableAudioPlayback);
-    document.removeEventListener('touchstart', enableAudioPlayback);
-};
-
-document.addEventListener('click', enableAudioPlayback);
-document.addEventListener('touchstart', enableAudioPlayback);
-
-const playAudioWhenVisible = () => {
-    if (!userInteracted || !targetSection) return; // Verifica se o usuário interagiu e se a seção existe
-
-    const sectionRect = targetSection.getBoundingClientRect();
-    const isFullyVisible = sectionRect.top >= 0 && sectionRect.bottom <= window.innerHeight;
-
-    if (isFullyVisible) {
-        audio.play().catch((error) => {
-            console.error('Erro ao reproduzir o áudio:', error);
-        });
-        window.removeEventListener('scroll', playAudioWhenVisible); // Remove o evento após tocar o áudio
+    // Verifica se o elemento <audio> existe
+    if (!audio) {
+        console.error('Elemento <audio> não encontrado no DOM.');
+        return;
     }
-};
 
-// Adiciona o evento de scroll para verificar a visibilidade da seção
-if (targetSection) {
-    window.addEventListener('scroll', playAudioWhenVisible);
-}
+    // Configura o volume inicial para um nível suave
+    audio.volume = 0.3; // Volume ajustado para ser suave
+
+    // Função para tocar o áudio quando o usuário rolar até o final da seção "sobre"
+    const playAudioWhenVisible = () => {
+        if (!targetSection || audioPlayed) return; // Verifica se a seção existe e se o áudio já foi tocado
+
+        const sectionRect = targetSection.getBoundingClientRect();
+        const isFullyVisible =
+            sectionRect.top >= 0 && // O topo da seção está visível
+            sectionRect.bottom <= window.innerHeight; // O final da seção está visível
+
+        if (isFullyVisible) {
+            audio.play().catch((error) => {
+                console.error('Erro ao reproduzir o áudio:', error);
+            });
+            audioPlayed = true; // Marca o áudio como tocado
+            window.removeEventListener('scroll', playAudioWhenVisible); // Remove o evento após tocar o áudio
+        }
+    };
+
+    // Adiciona o evento de scroll para verificar a visibilidade da seção
+    if (targetSection) {
+        window.addEventListener('scroll', playAudioWhenVisible);
+    }
+});
