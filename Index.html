@@ -12,12 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/icon/ALPEPE.png">
     <script src="/Javascript/music.js"></script>  
+    <script src="/Javascript/animateCopy.js"></script>
 </head>
 
 <body>
 
     
-      
+      <div id="message"></div>
     <div id="up" class="up-animate">
         <img src="/Image/up.png" alt="">
     </div>
@@ -42,9 +43,8 @@
                 <div></div>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#servicos">Produtos</a></li>
                 <li><a href="#equipe">Equipe</a></li>
                 <li><a href="#roadmap">Roteiro</a></li>
                 <li><a href="#dashboard">Status do token</a></li>
@@ -58,8 +58,10 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="animate-text">Prepare-se para a maior disputa de memes de todos os tempos!</h1>
-            
-            <button class="cta-button animate-text">Entrar na venda privada</button>
+             <div>
+                <button>Copiar contrato</button>
+             </div>
+            <button class="cta-button animate-text" style="visibility: hidden;">Entrar na venda privada</button>
         </div>
     </section>
     <audio src="/sons/song.mp3" preload="auto"></audio>
@@ -134,8 +136,8 @@
                         <img src="equipe/CEO-LEANDRO.jpg" alt="Membro da Equipe 1">
                         <div class="member-overlay">
                             <div class="social-links">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                                <a href="https://www.instagram.com/leo_paganotti_c/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://t.me/LeonardoaMarketing001"><i class="fab fa-telegram-plane"></i></a>
                                 
                             </div>
                         </div>
@@ -149,8 +151,8 @@
                         <img src="/Equipe/Dev-Abraao.jpg" alt="Membro da Equipe 3">
                         <div class="member-overlay">
                             <div class="social-links">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                                <a href="www.linkedin.com/in/abraão-silva-devweb3"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://t.me/AbraaoOliveira47"><i class="fab fa-telegram-plane"></i></a>
                                 
                             </div>
                         </div>
@@ -204,82 +206,127 @@
         </div>
     </section>
     <script src="Javascript/pizza.js"></script>
-    <script src="/javascript/mailto.js"></script>
     <script src="/Javascript/roadmapAnimation.js"></script>
 
     
     <section id="roadmap" class="roadmap-section">
-        <div class="container">
+    <div class="container">
+        <div>
             <h2 class="animate-text">Roadmap</h2>
-            <div class="roadmap-content">
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 1</h3>
-                    <p>Estruturação do projeto:</p>
-                    <ul>
-                        <li>Desenvolvimento de ideia ✔️</li>
-                        <li>Desenvolvimento de site ✔️</li>
-                        <li>Desenvolvimento de contrato ✔️</li>
-                        <li>Criação de redes sociais ✔️</li>
-                        <li>Criação de whitepaper ✔️</li>
-                        <li>Criação de comunidade ✔️</li>
-                        <li>Rodada de venda privada</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 2</h3>
-                    <p>Pré-venda e marketing agressivo:</p>
-                    <ul>
-                        <li>Rodada de pré-venda ❌</li>
-                        <li>Início de campanha de marketing ❌</li>
-                        <li>Abertura de negociações ❌</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 3</h3>
-                    <p>Planejamento de modelo RWA para garantia de sustentabilidade:</p>
-                    <ul>
-                        <li>Vinculo do token a um modelo de negócio físico ❌</li>
-                        <li>Ajuste de receita destinada ao projeto ❌</li>
-                        <li>Parcerias e expansão ❌</li>
-                        <li>Marketing agressivo ❌</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 4</h3>
-                    <p>Desenvolvimento de produtos baseados em ROI</p>
-                    <ul>
-                        <li>planejamento de designer de plataforma ❌</li>
-                        <li>Desenvolvimento de contratos de staking ❌</li>
-                        <li>Testnet de contratos inteligentes ❌</li>
-                        <li>Implementação de contratos na mainnet(BSC) ❌</li>
-                        <li>plataforma de staking  V 1.0.0 ❌</li>
-                        <li>Marketing agressivo resumindo os feitos ❌</li>
-                        <li>Desenvolvimento de gameFi❌</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 5</h3>
-                    <p>Listagens inteligente:</p>
-                    <ul>
-                        <li>Anúncio 2° listagem em DEX(Corretora descentralizada) ❌</li>
-                        <li>Campanha de marketing agressivo ❌</li>
-                        <li>Listagem ❌</li>
-                        <li>Campanha de marketing ❌</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item animate-text">
-                    <h3>Fase 6</h3>
-                    <p>Crescimento exponencial:</p>
-                    <ul>
-                        <li>Anúncio listagem em primaira CEX(Corretora centralizada) tier 10 ❌</li>
-                        <li>Campanha de marketing (30 dias initerruputos) ❌</li>
-                        <li>Listagem ❌</li>
-                        <li>Campanha de marketing ❌</li>
-                    </ul>
+        </div>
+        
+        <div class="roadmap-content">
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card1.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 1</h3>
+                        <p>Estruturação do projeto:</p>
+                        <ul>
+                            <li>Desenvolvimento de ideia ✔️</li>
+                            <li>Desenvolvimento de site ✔️</li>
+                            <li>Desenvolvimento de contrato ✔️</li>
+                            <li>Criação de comunidade ✔️</li>
+                            <li>Rodada de venda privada</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-        </section>
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card2.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 2</h3>
+                        <p>Pré-venda e marketing agressivo:</p>
+                        <ul>
+                            <li>Rodada de pré-venda ❌</li>
+                            <li>Início de campanha de marketing ❌</li>
+                            <li>Abertura de negociações ❌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card3.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 3</h3>
+                        <p>Planejamento de modelo RWA para garantia de sustentabilidade:</p>
+                        <ul>
+                            <li>Planejamento RWA ❌</li>
+                            <li>Ajuste de receita destinada ao projeto ❌</li>
+                            <li>Parcerias e expansão ❌</li>
+                            <li>Marketing agressivo ❌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card4.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 4</h3>
+                        <p>Desenvolvimento de produtos baseados em ROI:</p>
+                        <ul>
+                            <li>Desenvolvimento de contratos de staking ❌</li>
+                            <li>Plataforma de staking V 1.0.0 ❌</li>
+                            <li>Marketing agressivo resumindo os feitos ❌</li>
+                            <li>Desenvolvimento de gameFi ❌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card5.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 5</h3>
+                        <p>Listagens inteligente:</p>
+                        <ul>
+                            <li>Anúncio 2° listagem em DEX (Corretora descentralizada) ❌</li>
+                            <li>Campanha de marketing agressivo ❌</li>
+                            <li>Listagem ❌</li>
+                            <li>Campanha de marketing ❌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-item-inner">
+                    <div class="roadmap-item-front" style="background-image: url('image/alpepe_card6.png');">
+                        <!-- Frente com imagem -->
+                    </div>
+                    <div class="roadmap-item-back">
+                        <!-- Verso com conteúdo -->
+                        <h3>Fase 6</h3>
+                        <p>Crescimento exponencial:</p>
+                        <ul>
+                            <li>Anúncio listagem em primeira CEX (Corretora centralizada) tier 1 ❌</li>
+                            <li>Campanha de marketing❌</li>
+                            <li>Listagem ❌</li>
+                            <li>Campanha de marketing ❌</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         
         
         <section id="dashboard" class="dashboard-section">
