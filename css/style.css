@@ -36,15 +36,12 @@ nav {
 }
 
 .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 5px;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+   
 }
 
 .nav-links li a {
@@ -61,7 +58,7 @@ nav {
 
 /* Menu hambúrguer */
 .hamburger {
-    display: flex; /* Garante que o botão seja exibido */
+    display: none; /* Garante que o botão seja exibido */
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
