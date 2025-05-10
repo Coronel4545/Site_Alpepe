@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#000000">
@@ -11,13 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/icon/ALPEPE.png">
+    <meta property="og:title" content="PROJETO MEMECOIN/RWA que uni o melhor dos dois mundos!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alpepecoin.fun">
+    <meta property="og:image" content="https://alpepecoin.fun/icon/ALPEPE.png">
+    <meta name="description" content="Prepare-se para a maior disputa de memes de todos os tempos! Com gameFi, RWA, sistema de recompensas em USDT e muito mais!">
+    <meta name="keywords" content="medieval, história, castelos, cavaleiros, era medieval,memecoin, meme, pepe, alpepe, alpepecoin, alpepecoin">
+    <meta name="robots" content="index, follow">
     <script src="/Javascript/music.js"></script>  
     <script src="/Javascript/animateCopy.js"></script>
 </head>
 
 <body>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
       <div id="message"></div>
     <div id="up" class="up-animate">
         <img src="/Image/up.png" alt="">
@@ -178,7 +185,7 @@
                             <i class="fas fa-chart-pie"></i>
                         </div>
                         <h3>Liquidez</h3>
-                        <p>60% dos tokens são destinados à liquidez do projeto, garantindo estabilidade e crescimento sustentável.</p>
+                        <p>30% dos tokens são destinados à liquidez do projeto, garantindo estabilidade e crescimento sustentável.</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">
@@ -189,10 +196,10 @@
                     </div>
                     <div class="info-card">
                         <div class="info-icon">
-                            <i class="fas fa-exchange-alt"></i>
+                            <i class="fas fa-tools"></i>
                         </div>
-                        <h3>CEX</h3>
-                        <p>10% dos tokens são alocados para listagem em exchanges centralizadas.</p>
+                        <h3>DESENVOLVIMENTO</h3>
+                        <p>40% dos tokens são alocados para desenvolvimento de produtos e pagamento de marketing.</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">
@@ -230,7 +237,7 @@
                             <li>Desenvolvimento de site ✔️</li>
                             <li>Desenvolvimento de contrato ✔️</li>
                             <li>Criação de comunidade ✔️</li>
-                            <li>Rodada de venda privada</li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -338,26 +345,29 @@
         
                 <div class="dashboard-item">
                     <h2>Função de Queima Rápida:</h2>
-                    <span class="burn-function">DESABILITADA</span>
+                    <span class="burn-function" id="STATUS" style=" font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000; 
+    transition: color 0.3s ease;">DESABILITADA</span>
                 </div>
         
                 <div class="dashboard-item">
                     <h2>Status de Renúncia</h2>
-                    <span class="renunciation-status"> NÃO RENUNCIADO</span>
+                    <span class="renunciation-status" id="Status_renuncia"> NÃO RENUNCIADO</span>
                 </div>
         
                 <div class="dashboard-item">
-                    <h2>Fornecimento Total</h2>
-                    <span class="total-supply">150.000.000</span>
+                    <h2>Tokens Queimados</h2>
+                    <span class="total-supply" id="BURNAMOUNT">0</span>
                 </div>
         
                 <div class="dashboard-item">
                     <h2>Fornecimento Circulante</h2>
-                    <span class="circulating-supply">150.000.000</span>
+                    <span class="circulating-supply" id="Circulant">150.000.000</span>
                 </div>
             </div>
         </section>
-
+        <script src="/Javascript/contractConfig.js"></script>
     <footer>
         <div class="container">
             <div class="footer-social">
