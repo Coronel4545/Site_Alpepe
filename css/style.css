@@ -86,19 +86,7 @@ nav {
     transform: rotate(-45deg) translate(5px, -5px); /* Linha inferior vira parte do "X" */
 }
 
-.nav-links {
-    display: none; /* Esconde o menu por padrão */
-    flex-direction: column;
-    background: #4b3f2f;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 999; /* Garante que o menu fique acima de outros elementos */
-}
+
 
 .nav-links.active {
     display: flex; /* Exibe o menu quando ativo */
