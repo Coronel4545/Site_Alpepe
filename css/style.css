@@ -36,11 +36,15 @@ nav {
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .nav-links li a {
@@ -57,17 +61,50 @@ nav {
 
 /* Menu hambúrguer */
 .hamburger {
-    display: none; /* Escondido em telas grandes */
+    display: flex; /* Garante que o botão seja exibido */
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    position: relative;
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
 }
 
 .hamburger div {
     width: 25px;
     height: 3px;
-    background: #fdf5e6; /* Cor clara */
+    background: #fdf5e6; /* Cor das linhas */
     border-radius: 2px;
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+.hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Linha superior vira parte do "X" */
+}
+
+.hamburger.open div:nth-child(2) {
+    opacity: 0; /* Linha do meio desaparece */
+}
+
+.hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Linha inferior vira parte do "X" */
+}
+
+.nav-links {
+    display: none; /* Esconde o menu por padrão */
+    flex-direction: column;
+    background: #4b3f2f;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 999; /* Garante que o menu fique acima de outros elementos */
+}
+
+.nav-links.active {
+    display: flex; /* Exibe o menu quando ativo */
 }
 
 /* Hero Section */
@@ -811,6 +848,28 @@ footer {
 }
 
 
+
+/* Estilo para o span quando habilitado */
+.burn-function.enabled {
+    color: #00cc00; /* Verde para "HABILITADO" */
+}
+
+/* Estilo para o status de renúncia */
+.renunciation-status {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Estilo para "RENUNCIADO" */
+.renunciation-status.renounced {
+    color: #00cc00; /* Verde para "RENUNCIADO" */
+}
+
+/* Estilo para "NÃO RENUNCIADO" */
+.renunciation-status.not-renounced {
+    color: #ff0000; /* Vermelho para "NÃO RENUNCIADO" */
+}
 
 /* Estilo para a div do botão "Copiar contrato" */
 .hero-content div {
