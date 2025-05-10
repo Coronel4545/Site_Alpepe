@@ -613,130 +613,123 @@ footer {
   }
   
 
-  /* Estilo para a seção Roadmap */
+ /* Estilo base para roadmap-section */
 .roadmap-section {
-    padding: 50px 20px;
-    text-align: center;
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Fundo claro para a seção */
 }
 
-.roadmap-section h2 {
-    font-family: 'Cinzel', serif; /* Fonte medieval */
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #4b3f2f; /* Cor de texto medieval */
-}
-
+/* Container do roadmap */
 .roadmap-content {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os itens */
 }
 
+/* Estilo base para roadmap-item (cartas em pé) */
 .roadmap-item {
-    background: #fdf5e6; /* Fundo claro */
-    border: 2px solid #d4af37; /* Borda dourada */
-    border-radius: 10px; /* Bordas arredondadas */
+    width: 300px; /* Largura fixa de 300px */
+    height: 400px; /* Altura maior para o formato vertical */
+    perspective: 1000px; /* Necessário para o efeito 3D */
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px; /* Bordas arredondadas para parecer cartas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar as cartas */
+    transition: transform 0.3s ease;
+}
+
+/* Estilo para o conteúdo interno (frente e verso) */
+.roadmap-item-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* Frente da carta */
+.roadmap-item-front {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o verso quando a frente está visível */
+    border-radius: 10px;
+}
+
+/* Verso da carta */
+.roadmap-item-back {
+    background: #fff; /* Fundo branco para o verso */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde a frente quando o verso está visível */
+    transform: rotateY(180deg); /* Rotação para o verso */
+    border-radius: 10px;
     padding: 20px;
-    width: 22%; /* Largura padrão para itens em telas grandes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-    text-align: center;
-    transition: transform 0.6s ease, box-shadow 0.6s ease, background 0.3s ease; /* Suaviza a transição */
-    perspective: 1000px; /* Adiciona perspectiva para efeitos 3D */
-    transform-style: preserve-3d; /* Garante que o efeito 3D seja aplicado */
-    cursor: pointer; /* Indica que o item é interativo */
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite rolagem se o conteúdo for maior que o verso */
 }
 
-.roadmap-item:hover {
-    transform: rotateY(10deg) scale(1.05); /* Adiciona rotação e zoom ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Realça a sombra */
-    background: #d4af37; /* Altera o fundo para dourado */
-    color: #fdf5e6; /* Altera a cor do texto */
+/* Efeito de virar ao clicar */
+.roadmap-item.flipped .roadmap-item-inner {
+    transform: rotateY(180deg);
 }
 
-.roadmap-item:active {
-    transform: rotateY(0deg) scale(0.95); /* Reduz o tamanho ao clicar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduz a sombra */
-    background: #b8860b; /* Fundo dourado mais escuro */
-    color: #ffffff; /* Texto branco */
-}
-
-.roadmap-item h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #4b3f2f;
-}
-
-.roadmap-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #4b3f2f;
-}
-
-/* Responsividade para a seção Roadmap */
+/* Responsividade */
 @media (max-width: 1024px) {
     .roadmap-item {
-        width: 45%; /* Ajusta a largura para duas colunas em telas médias */
+        width: 300px; /* Mantém a largura fixa */
+        height: 350px; /* Reduz a altura em telas médias */
     }
 }
 
 @media (max-width: 768px) {
     .roadmap-item {
-        width: 100%; /* Ajusta a largura para uma coluna em telas pequenas */
+        width: 300px; /* Mantém a largura fixa */
+        height: 300px; /* Reduz a altura em telas menores */
     }
 
+    .roadmap-item-back {
+        padding: 15px; /* Ajusta o espaçamento interno para telas pequenas */
+    }
+}
+
+/* Estilo para o título da seção Roadmap */
+.roadmap-section h2 {
+    font-family: 'Cinzel', serif; /* Mesma fonte dos outros títulos */
+    font-size: 2.5rem; /* Tamanho do texto */
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 30px; /* Espaçamento inferior */
+    text-transform: uppercase; /* Deixa o texto em letras maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+/* Estilo para a div que contém o título */
+.roadmap-section > .container > div {
+    width: 100%; /* Ocupa 100% da largura da seção */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Responsividade para o título */
+@media (max-width: 768px) {
     .roadmap-section h2 {
-        font-size: 1.8rem; /* Reduz o tamanho do título */
+        font-size: 2rem; /* Reduz o tamanho do texto em telas menores */
     }
 }
 
 @media (max-width: 480px) {
     .roadmap-section h2 {
-        font-size: 1.5rem; /* Reduz ainda mais o tamanho do título */
-    }
-
-    .roadmap-item h3 {
-        font-size: 1.2rem; /* Reduz o tamanho do subtítulo */
-    }
-
-    .roadmap-item p {
-        font-size: 0.9rem; /* Reduz o tamanho do texto */
+        font-size: 1.8rem; /* Reduz ainda mais o tamanho do texto em telas muito pequenas */
     }
 }
-
-
-/* Estilo para a lista na seção Roadmap */
-.roadmap-section ul {
-    list-style-type: none; /* Remove os marcadores padrão */
-    padding: 0; /* Remove o padding padrão */
-    margin: 10px 0; /* Adiciona espaçamento entre as listas */
-}
-
-.roadmap-section ul li {
-    font-family: 'Poppins', sans-serif; /* Define a fonte */
-    font-size: 1rem; /* Define o tamanho do texto */
-    color: #4b3f2f; /* Cor do texto */
-    background: #f4f1e0; /* Fundo claro para os itens */
-    border: 1px solid #d4af37; /* Borda dourada */
-    padding: 8px 12px; /* Espaçamento interno */
-    margin-bottom: 5px; /* Espaçamento entre os itens */
-    cursor: pointer; /* Mostra que o item é clicável */
-    transition: background 0.3s ease, color 0.3s ease; /* Transição suave */
-}
-
-/* Alternância de cor ao passar o mouse */
-.roadmap-section ul li:hover {
-    background: #d4af37; /* Fundo dourado */
-    color: #fdf5e6; /* Texto claro */
-}
-
-/* Alternância de cor ao selecionar */
-.roadmap-section ul li:active {
-    background: #b8860b; /* Fundo dourado mais escuro */
-    color: #ffffff; /* Texto branco */
-}
-
 
 /* Estilo para a seção Dashboard */
 .dashboard-section {
@@ -814,5 +807,120 @@ footer {
 
     .dashboard-item {
         width: 100%; /* Ajusta para uma coluna */
+    }
+}
+
+
+
+/* Estilo para a div do botão "Copiar contrato" */
+.hero-content div {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background: none; /* Remove o fundo */
+    padding: 10px 0; /* Espaçamento interno */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilo para o link "Copiar contrato" */
+.hero-content div a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #d4af37; /* Cor dourada */
+    font-weight: bold;
+    font-size: 1.2rem; /* Tamanho do texto */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.hero-content div a:hover {
+    color: #b8860b; /* Cor dourada mais escura ao passar o mouse */
+    transform: scale(1.1); /* Leve zoom ao passar o mouse */
+}
+
+/* Estilo para o ícone */
+.hero-content div a i {
+    font-size: 1.5rem; /* Tamanho do ícone */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content div a {
+        font-size: 1rem; /* Reduz o tamanho do texto em telas menores */
+    }
+
+    .hero-content div a i {
+        font-size: 1.2rem; /* Reduz o tamanho do ícone em telas menores */
+    }
+}
+
+
+
+
+/* Estilo para a mensagem de notificação */
+#message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4b3f2f; /* Fundo no tema da página */
+    color: #fdf5e6; /* Texto claro */
+    padding: 10px 20px;
+    border: 2px solid #d4af37; /* Borda dourada */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Invisível por padrão */
+    visibility: hidden; /* Esconde a mensagem */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transição suave */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #message {
+        font-size: 0.9rem; /* Reduz o tamanho do texto em telas menores */
+        padding: 8px 16px;
+    }
+}
+
+/* Classe para exibir a mensagem */
+#message.show {
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Exibe a mensagem */
+}
+
+
+
+
+/* Estilo para o botão "Copiar contrato" */
+.hero-content button {
+    background: linear-gradient(90deg, #d4af37, #b8860b); /* Gradiente dourado */
+    color: #fdf5e6; /* Cor clara */
+    border: none; /* Remove bordas padrão */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho do texto */
+    font-weight: bold;
+    cursor: pointer; /* Cursor de clique */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito ao passar o mouse */
+.hero-content button:hover {
+    transform: scale(1.1); /* Leve zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Realça a sombra */
+    background: linear-gradient(90deg, #b8860b, #d4af37); /* Inverte o gradiente */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content button {
+        font-size: 0.9rem; /* Reduz o tamanho do texto em telas menores */
+        padding: 8px 16px; /* Ajusta o espaçamento interno */
     }
 }
