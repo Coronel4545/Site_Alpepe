@@ -520,7 +520,7 @@ footer {
     }
 
     .nav-links.active {
-        top: 9%; /* Ajusta a posição do menu */
+        top: 14%; /* Ajusta a posição do menu */
         display: flex;
     }
 
