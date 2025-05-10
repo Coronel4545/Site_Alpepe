@@ -1,4 +1,4 @@
-const data = [60, 20, 10, 10]; // Dados do gráfico (percentuais)
+const data = [30, 20, 40, 10]; // Dados do gráfico (percentuais)
 const colors = ['#d4af37', '#f4b400', '#34a853', '#4285f4']; // Cores das fatias
 const radius = 160; // Raio do gráfico
 
