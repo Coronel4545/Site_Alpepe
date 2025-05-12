@@ -1,0 +1,21 @@
+{
+  "name": "ALPEPE",
+  "short_name": "ALPEPE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4b3f2f",
+  "description": "Prepare-se para a maior disputa de memes de todos os tempos! Com gameFi, RWA, sistema de recompensas em USDT e muito mais!",
+  "icons": [
+    {
+      "src": "/icon/ALPEPE.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon/ALPEPE.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
