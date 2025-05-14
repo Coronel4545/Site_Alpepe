@@ -75,7 +75,15 @@
              <div>
                 <button>Copiar contrato</button>
              </div>
-            <button class="cta-button animate-text">Entrar na venda privada</button>
+            <button class="cta-button animate-text" id="direct">Entrar na venda privada</button>
+		<script>
+			const but = document.getElementById('direct');
+
+but.addEventListener('click', function () {
+  window.location.href = 'https://www.tiktok.com/';
+});
+
+		</script>
         </div>
     </section>
     <audio src="/sons/song.mp3" preload="auto"></audio>
