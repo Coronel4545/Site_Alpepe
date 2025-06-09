@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPEPE COIN - O Reino das Criptomoedas</title>
+    <link rel="stylesheet" href="Estilo/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Imagem/ALPEPE.png" type="image/png">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js"></script>
+    <script src="/javascript/Animate.js"></script>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="/Imagem/ALPEPE.png" alt="ALPEPE Logo" class="logo-img">
+                <span>ALPEPE COIN</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#team">Equipe</a>
+                <a href="/dashBoard.html" >Dashboard</a>
+                <a href="#lore">Lore</a>
+                <a href="#swap" class="btn-primary">Comprar com crypto</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+<script src="/javascript/menu.js"></script>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ALPEPE COIN</h1>
+            <p class="subtitle">Seja bem vindo ao projeto meme mais singular do ecosistema <span style="color: gold;">BSC</span>!</p>
+            <p class="hero-text">O token que uni diversão, finanças e ativos do mundo real em um só lugar!</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/alpepeofficialgroup" target="_blank" class="btn-primary">Telegram</a>
+                <a href="#" target="_blank" class="btn-secondary">Comprar no pix</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/Imagem/soldado_rival.PNG" alt="Medieval Crypto Art 2">
+            <img src="/Imagem/soldado.png" alt="Medieval Crypto Art">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre o Reino</h2>
+            <div class="about-row">
+                <div class="Guardian1">
+                    <img src="/Imagem/guarda.png" alt="Guardião-esquerdo">
+                </div>
+                <div class="about-grid">
+                    
+                    <div class="about-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Plataforma de staking</h3>
+                        <p>Plataforma destinada a staking de moedas $ALP com rendimento em $USDT</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-wallet"></i>
+                        <h3>NFTS rentáveis!</h3>
+                        <p>Pagamento trimestral em $USDT para detentores de NFTS direto nas respectivas carteiras detentoras(Quanto mais NFTS e maior raridade, maior o rendimento)</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>GameFi PVE/PvP</h3>
+                        <p>GameFi 100% divertido e sustentável. Aposte USDT contra o inimigo e dê o seu melhor para vencer!(O vencedor o USDT do rival será de você)</p>
+                    </div>
+                </div>
+                 <div class="Guardian2">
+                    <img src="/Imagem/guarda.png" alt="Guardião-direito">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <script src="/javascript/configContractPreSale.js"></script>
+    <div id="message-connect-disconnect"></div>
+    <section id="swap" class="swap-section">
+        <div class="container">
+            <h2>Pré-venda ALPEPE</h2>
+            <div class="swap-container">
+                <div class="swap-header">
+                    <h3>Compre ALPEPE</h3>
+                    <p class="price">Preço: $0.014</p>
+                </div>
+               
+                <div class="swap-form">
+                    <div class="swap-input-group">
+                        <label>De:</label>
+                        <div class="input-with-balance">
+                            <div class="currency-selector">
+                                <button class="currency-button" data-currency="USDT">
+                                    <img src="/pagamento/USDT.png" alt="USDT Logo">
+                                    USDT
+                                </button>
+                                <button class="currency-button" data-currency="BNB">
+                                    <img src="/pagamento/BNB.png" alt="BNB Logo">
+                                    BNB
+                                </button>
+                            </div>
+                            <input type="number" id="from-amount" placeholder="0.00">
+                            <span class="token-balance">Saldo: <span id="from-balance">0.00</span></span>
+                        </div>
+                        <div class="percentage-buttons">
+                            <button data-percent="10">10%</button>
+                            <button data-percent="25">25%</button>
+                            <button data-percent="50">50%</button>
+                            <button data-percent="75">75%</button>
+                            <button data-percent="100">Max</button>
+                        </div>
+                    </div>
+                    <div class="swap-arrow" id="logout-icon-container" style="cursor: url(/cursor/Middle\ Ages--pointer--SweezyCursors-32x32x32.png), auto;"> <!-- ALTERADO ID AQUI -->
+                        <i class="fas fa-exchange-alt" id="swap-icon" style="cursor: url(/cursor/Middle\ Ages--pointer--SweezyCursors-32x32x32.png), auto;"></i> <!-- ADICIONADO ID AQUI -->
+                    </div>
+                    <div class="swap-input-group">
+                        <label>Para:</label>
+                        <div class="input-with-balance">
+                            <div class="token-display">
+                                <img src="/compra/ALPEPE.png" alt="ALPEPE Logo" class="alpepe-logo-swap">
+                                <span>$ALPEPE</span>
+                            </div>
+                            <span id="to-amount" class="token-amount">0.00</span>
+                            <span class="token-balance"></span>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-swap">Conectar Carteira</button>
+                    <div class="add-token-container">
+                        <img src="/Imagem/Metamask.png" alt="MetaMask Logo" class="metamask-logo">
+                        <span class="add-token-text">Adicionar token a carteira</span>
+                    </div>
+                    <div id="add-token-message" class="message-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="tokenomics" class="tokenomics">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics-content">
+                <div class="tokenomics-chart">
+                    
+                    <svg id="pieChart" viewBox="0 0 400 400"></svg>
+                </div>
+                <div class="tokenomics-info-cards">
+                    <div class="tokenomics-info-card">
+                        <div class="tokenomics-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>LIQUIDEZ</h3>
+                        <p>40% dos tokens são destinados à liquidez do projeto, garantindo estabilidade e crescimento sustentável.</p>
+                    </div>
+                    <div class="tokenomics-info-card">
+                        <div class="tokenomics-icon">
+                            <i class="fas fa-gift"></i> 
+                        </div>
+                        <h3>RECOMPENSA</h3>
+                        <p>10% dos tokens são reservados para recompensas e incentivos à comunidade.</p>
+                    </div>
+                    <div class="tokenomics-info-card">
+                        <div class="tokenomics-icon">
+                            <i class="fas fa-tools"></i> 
+                        </div>
+                        <h3>DESENVOLVIMENTO</h3>
+                        <p>40% dos tokens são alocados para desenvolvimento de produtos e pagamento de marketing.</p>
+                    </div>
+                    <div class="tokenomics-info-card">
+                        <div class="tokenomics-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>EQUIPE</h3>
+                        <p>10% dos tokens são destinados à equipe, com período de vesting para garantir comprometimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Equipe</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Equipe/CEO-LEANDRO.jpg" alt="Membro da Equipe 1">
+                    </div>
+                    <h3>Leonardo Paganote</h3>
+                    <p class="member-role">Diretor Executivo</p>
+                    <p class="member-description">Fundador e idealizador do projeto ALPEPE COIN.</p>
+                    <div class="social-links">
+                        
+                        <a href="https://t.me/LeonardoaMarketing001" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Equipe/Dev-Abraao.jpg" alt="Membro da Equipe 2">
+                    </div>
+                    <h3>Abraão Oliveira</h3>
+                    <p class="member-role">Diretor de Tecnologia</p>
+                    <p class="member-description">Responsável pelo desenvolvimento e implementação de todas as soluções tecnológicas do projeto, liderando a equipe de desenvolvimento e garantindo a segurança e eficiência dos sistemas.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/abraão-silva-devweb3" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://t.me/AbraaoOliveira47" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 1</h3>
+                        <ul>
+                            <li>Desenvolvimento de ideia</li>
+                            <li>Desenvolvimento de site e contrato</li>
+                            <li>Criação de comunidades</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 2</h3>
+                        <ul>
+                            <li>Desenvolvimento do primeiro dApp</li>
+                            <li>Pré-venda</li>
+                            <li>Lançamento do token</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Fase 3</h3>
+                        <ul>
+                            <li>Planejamento do gameFi</li>
+                            <li>Planejamento UI/UX</li>
+                            <li>Lançamento do gameFi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="lore" class="lore">
+        <h1>Lore</h1>
+        <div class="book-container">
+            <div class="book">
+                <div class="book-pages">
+                    <div class="page" data-page="1">
+                        <h2>Ato I — O Crepúsculo de ALPEPE: O Gladiador Esquecido pelo Tempo</h2>
+                        <p>Em um reino apagado pela poeira da história, vive ALPEPE — um herói de glórias antigas, mas alma ferida. Ele vê seu povo ser saqueado dia após dia, enquanto sua vontade de lutar se desfaz... até que o destino murmura seu nome mais uma vez.</p>
+                        <img src="ATOS/ATO-I.png" alt="Ilustração do Ato I" >
+                    </div>
+                    <div class="page" data-page="2">
+                        <h2>Ato II — O Grito da Inocência: O Despertar da Fúria Silenciosa</h2>
+                        <p>Quando o choro de uma criança corta o ar e o desespero de uma mãe quebra o silêncio, algo dentro de Pepe desperta. Não é mais possível calar. O chamado à ação ecoa mais alto que o cansaço — e ALPEPE se levanta.</p>
+                        <img src="ATOS/ATO-II.png" alt="Ilustração do Ato II" >
+                    </div>
+                    <div class="page" data-page="3">
+                        <h2>Ato III — A Espada Erguida: O Primeiro Golpe Contra a Escuridão</h2>
+                        <p>Com o elmo nas costas e a espada nas mãos, o gladiador marcha. Pela primeira vez em muito tempo, não caminha só. A vila, antes adormecida, desperta. E os saqueadores não sabem... mas o primeiro trovão acaba de cair.</p>
+                        <img src="ATOS/ATO-III.png" alt="Ilustração do Ato III" >
+                    </div>
+                    <div class="page" data-page="4">
+                        <h2>Ato IV — A Ira do Povo: A Queda dos Senhores do Saque</h2>
+                        <p>O confronto explode. Lado a lado com os aldeões, ALPEPE lidera um levante feroz. Os opressores tombam sob o peso de uma coragem coletiva. A guerra é curta, brutal — e definitiva.</p>
+                        <img src="ATOS/ATO-IV.png" alt="Ilustração do Ato IV" >
+                    </div>
+                    <div class="page" data-page="5">
+                        <h2>Ato V — O Nascimento da Lenda: Quando um Guerreiro se Torna Esperança</h2>
+                        <p>A vitória é selada em lágrimas e sorrisos. Aquele que um dia quis desistir agora é celebrado como o símbolo de um novo começo. ALPEPE, o gladiador... agora é memória viva. Agora é mito.    </p>
+                        <img src="ATOS/ATO-V.png" alt="Ilustração do Ato V" >
+                    </div>
+                    
+                </div>
+                <div class="book-controls">
+                    <button class="prev-page"><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-number">Página <span id="current-page">1</span> de 5</span>
+                    <button class="next-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ALPEPE COIN</h3>
+                    <p>O Reino das Criptomoedas</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="#about">Sobre</a>
+                    <a href="#tokenomics">Tokenomics</a>
+                    <a href="#roadmap">Roadmap</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="https://x.com/LPaganote7284?t=v0M5F_BJYbl9nfo3RKaCnA&amp;s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://t.me/alpepeofficialgroup" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.tiktok.com/@al.pepe_?_t=ZM-8wKtN2u4AZ3&amp;_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ALPEPE COIN. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="/javascript/slowScroll.js"></script>
+    <script src="/javascript/pizza.js"></script>
+    <script src="/javascript/book.js"></script>
+    <script src="/javascript/mouseEffect.js"></script>
+    
+</body>
+</html>
