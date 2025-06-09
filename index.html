@@ -10,6 +10,19 @@
     <link rel="icon" href="/Imagem/ALPEPE.png" type="image/png">
 </head>
 <body>
+    <div id="preloader">
+    <img src="/Imagem/ALPEPE.png" alt="Looken Logo" class="preloader-logo">
+  </div>
+
+  <script>
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.style.display = 'none', 400); // fade-out suave
+    }
+});
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js"></script>
     <script src="/javascript/Animate.js"></script>
     <header class="header">
