@@ -1,6 +1,6 @@
 const preSaleContractAddress ="0xd4b15639A0489790D9997C77e6d181C68fA2AF5F";
 
-const tokenAddress = "0x223009A2abDBFc2ccebCECdf420820b6ae0692eA";
+const tokenAddress = "0x36FB0BEA8B3119aCaC599eDA85D5214b3626bE86";
 
 const DATA_ABI = [
     {
@@ -867,7 +867,7 @@ const MAX_BUY_USD = 1500;
 const BNB_PRICE_FEED = "0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE";
 const USDT_ADDRESS = "0x55d398326f99059fF775485246999027B3197955";
 const USDT_DECIMALS = 18;
-const ALPEPE_TOKEN_INDEX = 0;
+const ALPEPE_TOKEN_INDEX = 1;
 
 
 
@@ -2055,7 +2055,7 @@ async function buyTokens() {
             console.log(`Comprando com BNB. Valor em Wei: ${weiAmount}`);
 
             // Chamar a função buyTokensInBNBNative do contrato
-            await preSaleContract.methods.buyTokensInBNBNative(0).send({ 
+            await preSaleContract.methods.buyTokensInBNBNative(1).send({ 
                 from: userAddress, // Endereço da carteira do usuário
                 value: weiAmount // Enviar BNB nativo como 'value'
             });
@@ -2078,7 +2078,7 @@ async function buyTokens() {
 
             // Chamar a função buyTokensInUSDT do contrato (assumindo que ela espera o valor em unidades de USDT)
             console.log(`Chamando buyTokensInUSDT para comprar com ${usdtAmount} unidades de USDT...`);
-            await preSaleContract.methods.buyTokensInUSDT(0, usdtAmount).send({ //Passamos o índicee 0 + o montante de UST em uint256 para o contrato.
+            await preSaleContract.methods.buyTokensInUSDT(1, usdtAmount).send({ //Passamos o índicee 0 + o montante de UST em uint256 para o contrato.
                 from: userAddress // Endereço da carteira do usuário
                 // Não enviar 'value' para transações com tokens ERC20
             });
