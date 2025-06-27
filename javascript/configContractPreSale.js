@@ -970,10 +970,10 @@ async function addTokenToWallet() {
         const messageContainer = document.getElementById('add-token-message');
         if (messageContainer) {
             if (wasAdded) {
-                messageContainer.textContent = 'Token adicionado com sucesso!';
+                messageContainer.textContent = 'Token successfully added!';
                 messageContainer.style.color = 'green';
             } else {
-                messageContainer.textContent = 'O token não foi adicionado à carteira.';
+                messageContainer.textContent = 'The token was not added to the wallet.';
                 messageContainer.style.color = 'orange';
             }
 
@@ -985,7 +985,7 @@ async function addTokenToWallet() {
         console.error('Erro ao adicionar token:', error);
         const messageContainer = document.getElementById('add-token-message');
         if (messageContainer) {
-            messageContainer.textContent = 'Erro ao adicionar token. Por favor, tente novamente.';
+            messageContainer.textContent = 'Error adding token. Please try again.';
             messageContainer.style.color = 'red';
             setTimeout(() => {
                 messageContainer.textContent = '';
@@ -1202,7 +1202,7 @@ async function updateUI() {
        }
         const priceElement = document.querySelector('.price');
         if (priceElement) {
-             priceElement.textContent = 'Preço: Erro';
+             priceElement.textContent = 'Price: Error';
         }
         const toAmountElement = document.getElementById('to-amount');
         if (toAmountElement) {
@@ -1357,7 +1357,7 @@ async function validateBuyAmount(amount) { // Agora recebe diretamente o número
     }
 
     if (alpepePriceUSD === null) {
-        showMessage('Preço do token ALPEPE não disponível. Tente novamente mais tarde.', 'warning');
+        showMessage('ALPEPE token price not available. Please try again later.', 'warning');
          console.warn('validateBuyAmount: Preço do ALPEPE não disponível.');
         return false;
     }
@@ -1375,7 +1375,7 @@ async function validateBuyAmount(amount) { // Agora recebe diretamente o número
             bnbPriceUSD = await getBNBPrice(); // getBNBPrice já loga o que obtém
             if (bnbPriceUSD === null || bnbPriceUSD <= 0) {
                 console.error('validateBuyAmount: Não foi possível obter um preço válido para o BNB.');
-                showMessage('Não foi possível obter o preço do BNB para validar a compra. Tente novamente.', 'warning');
+                showMessage('Unable to fetch BNB price to validate the purchase. Please try again.', 'warning');
                 return false;
             }
         }
@@ -1393,7 +1393,7 @@ async function validateBuyAmount(amount) { // Agora recebe diretamente o número
 
         console.log(`validateBuyAmount: Moeda BNB, amount: ${amount}, bnbPriceUSD: ${bnbPriceUSD}, usdAmount: ${usdAmount}`);
    } else {
-        showMessage('Moeda selecionada para validação não suportada.', 'error');
+        showMessage('Selected currency for validation is not supported.', 'error');
          console.error('validateBuyAmount: Moeda selecionada desconhecida:', selectedCurrency);
         return false;
    }
@@ -1402,12 +1402,12 @@ async function validateBuyAmount(amount) { // Agora recebe diretamente o número
 
    // Verificar limites mínimo e máximo em USD
    if (usdAmount < MIN_BUY_USD) {
-       showMessage(`O valor mínimo de compra é $${MIN_BUY_USD.toFixed(2)} USD.`, 'warning'); // Usar formatNumber para formatar o limite
+       showMessage(`The minimum purchase amount is $${MIN_BUY_USD.toFixed(2)} USD.`, 'warning'); // Usar formatNumber para formatar o limite
         console.warn(`validateBuyAmount: Valor em USD (${usdAmount}) menor que o mínimo ($${formatNumber(MIN_BUY_USD)}).`);
        return false;
    }
    if (usdAmount > MAX_BUY_USD) {
-       showMessage(`O valor máximo de compra é $${formatNumber(MAX_BUY_USD.toFixed(2))} USD.`, 'warning'); // Usar formatNumber para formatar o limite
+       showMessage(`The maximum purchase amount is $${formatNumber(MAX_BUY_USD.toFixed(2))} USD.`, 'warning'); // Usar formatNumber para formatar o limite
         console.warn(`validateBuyAmount: Valor em USD (${usdAmount}) maior que o máximo ($${formatNumber(MAX_BUY_USD.toFixed(2))}).`);
        return false;
    }
@@ -1422,7 +1422,7 @@ async function validateBuyAmount(amount) { // Agora recebe diretamente o número
 
     if (isNaN(balance) || amount > balance) {
         // Usar formatNumber para formatar o saldo exibido na mensagem
-        showMessage(`Saldo insuficiente na carteira! Seu saldo atual é ${formatNumber(balance.toString())} ${selectedCurrency}`, 'warning');
+        showMessage(`Insufficient wallet balance! Your current balance is ${formatNumber(balance.toString())} ${selectedCurrency}`, 'warning');
         console.warn('validateBuyAmount: Saldo insuficiente.');
         return false;
     }
@@ -1495,7 +1495,7 @@ async function revokeConnection() {
         // Reseta o botão de conexão/compra para o estado inicial
         const connectButton = document.querySelector('.btn-swap');
         if (connectButton) {
-            connectButton.textContent = 'Conectar Carteira';
+            connectButton.textContent = 'Connect Wallet';
             // Remove o listener existente clonando e substituindo o elemento
             const newConnectButton = connectButton.cloneNode(true);
             connectButton.parentNode.replaceChild(newConnectButton, connectButton);
@@ -1516,7 +1516,7 @@ async function revokeConnection() {
         if (fromAmount) fromAmount.value = ""; // Limpa o input de quantidade
         if (toAmount) toAmount.textContent = "0.00"; // Reseta a quantidade de tokens a receber
         if (balanceElement) balanceElement.textContent = "0.00"; // Reseta o saldo exibido
-        if (priceElement) priceElement.textContent = `Preço: $0.014`; // Reseta o preço exibido para um valor padrão, pois o preço do ALPEPE pode não estar disponível
+        if (priceElement) priceElement.textContent = `Price: $0.014`; // Reseta o preço exibido para um valor padrão, pois o preço do ALPEPE pode não estar disponível
 
         // Remove event listeners de outros elementos da interface (botões de moeda, porcentagem, input de quantidade)
         // Isso é importante para evitar que handlers antigos interajam com um estado inconsistente
@@ -1527,7 +1527,7 @@ async function revokeConnection() {
         if (messageContainer) messageContainer.textContent = '';
 
         console.log('Carteira desconectada e estado local limpo.');
-        showMessage('Carteira desconectada com sucesso.', 'info');
+        showMessage('Wallet disconnected successfully.', 'info');
         window.dispatchEvent(new Event('walletStatusChanged')); // Dispara evento para atualizar o botão de swap
         setupSwapButtonListener();
         return true;
@@ -1542,7 +1542,7 @@ async function revokeConnection() {
 
         const connectButton = document.querySelector('.btn-swap');
          if (connectButton) {
-            connectButton.textContent = 'Conectar Carteira';
+            connectButton.textContent = 'Connect Wallet';
             const newConnectButton = connectButton.cloneNode(true);
             connectButton.parentNode.replaceChild(newConnectButton, connectButton);
             newConnectButton.onclick = async () => {
@@ -1558,7 +1558,7 @@ async function revokeConnection() {
         if (fromAmount) fromAmount.value = "";
         if (toAmount) toAmount.textContent = "0.00";
         if (balanceElement) balanceElement.textContent = "0.00";
-        if (priceElement) priceElement.textContent = 'Preço: $0.00';
+        if (priceElement) priceElement.textContent = 'Price: $0.00';
 
         removeEventListeners(); // Tentar remover listeners novamente
         const messageContainer = document.getElementById('add-token-message');
@@ -1619,7 +1619,7 @@ async function initWeb3() {
 
             if (accounts.length === 0) {
                 // Se o usuário não conectar nenhuma conta
-                showMessage('Por favor, conecte sua carteira na MetaMask para continuar.', 'warning');
+                showMessage('Please connect your wallet in MetaMask to continue.', 'warning');
                 await revokeConnection(); // Limpar estado se nenhuma conta for conectada
                 return false;
             }
@@ -1634,7 +1634,7 @@ async function initWeb3() {
             console.log(`Chain ID atual: ${chainId}`);
 
             if (chainId !== 56) {
-                showMessage('Rede incorreta detectada. Tentando mudar para a Binance Smart Chain...', 'warning');
+                showMessage('Incorrect network detected. Attempting to switch to Binance Smart Chain...', 'warning');
                 try {
                     // Tentar mudar para a rede BSC Mainnet
                     await window.ethereum.request({
@@ -1651,15 +1651,15 @@ async function initWeb3() {
                     if(updatedAccounts.length > 0) {
                         userAddress = updatedAccounts[0];
                         console.log(`Rede mudada para BSC. Carteira conectada: ${userAddress}`);
-                        showMessage('Conectado com sucesso à Binance Smart Chain!', 'success');
+                        showMessage('Successfully connected to Binance Smart Chain!', 'success');
                     } else {
-                        showMessage('Erro ao obter contas após mudar de rede. Por favor, reconecte.', 'error');
+                        showMessage('Error retrieving accounts after network switch. Please reconnect.', 'error');
                         await revokeConnection();
                         return false;
                     }
                 } catch (switchError) {
                     if (switchError.code === 4902) {
-                        showMessage('Rede Binance Smart Chain não encontrada na MetaMask. Tentando adicionar...', 'warning');
+                        showMessage('Binance Smart Chain network not found in MetaMask. Attempting to add...', 'warning');
                         try {
                             await window.ethereum.request({
                                 method: 'wallet_addEthereumChain',
@@ -1682,21 +1682,21 @@ async function initWeb3() {
                             if(updatedAccounts.length > 0) {
                                 userAddress = updatedAccounts[0];
                                 console.log(`Rede BSC adicionada e conectada. Carteira: ${userAddress}`);
-                                showMessage('Rede BSC adicionada e conectada com sucesso!', 'success');
+                                showMessage('BSC network added and connected successfully!', 'success');
                             } else {
-                                showMessage('Erro ao obter contas após adicionar rede. Por favor, reconecte.', 'error');
+                                showMessage('Error retrieving accounts after adding network. Please reconnect.', 'error');
                                 await revokeConnection();
                                 return false;
                             }
                         } catch (addError) {
                             console.error('Erro ao adicionar rede BSC na MetaMask:', addError);
-                            showMessage('Não foi possível adicionar a rede Binance Smart Chain automaticamente. Por favor, adicione manualmente.', 'error');
+                            showMessage('Unable to add the Binance Smart Chain network automatically. Please add it manually.', 'error');
                             await revokeConnection();
                             return false;
                         }
                     } else {
                         console.error('Erro ao mudar para rede BSC:', switchError);
-                        showMessage('Erro ao mudar para a rede Binance Smart Chain. Por favor, mude manualmente.', 'error');
+                        showMessage('Error switching to the Binance Smart Chain network. Please switch manually.', 'error');
                         await revokeConnection();
                         return false;
                     }
@@ -1720,7 +1720,7 @@ async function initWeb3() {
                 window.ethereum.on('accountsChanged', async (accounts) => {
                     console.log('Evento accountsChanged', accounts);
                     if (accounts.length === 0) {
-                        showMessage('Sua carteira foi desconectada.', 'warning');
+                        showMessage('Your wallet has been disconnected.', 'warning');
                         await revokeConnection();
                     } else {
                         userAddress = accounts[0];
@@ -1737,7 +1737,7 @@ async function initWeb3() {
                     console.log('Evento chainChanged', chainIdHex);
                     const chainId = parseInt(chainIdHex, 16);
                     if (chainId !== 56) {
-                        showMessage('Rede alterada para uma rede não suportada. Por favor, mude para a Binance Smart Chain.', 'warning');
+                        showMessage('Network changed to an unsupported network. Please switch to the Binance Smart Chain.', 'warning');
                         await revokeConnection();
                     } else {
                         console.log('Rede alterada para Binance Smart Chain.');
@@ -1759,7 +1759,7 @@ async function initWeb3() {
 
                 window.ethereum.on('disconnect', async (error) => {
                     console.log('Evento disconnect', error);
-                    showMessage('Sua carteira foi desconectada ou houve um erro de conexão.', 'warning');
+                    showMessage('Your wallet has been disconnected or there was a connection error.', 'warning');
                     await revokeConnection();
                 });
 
@@ -1780,24 +1780,24 @@ async function initWeb3() {
                 // Disparar evento para que setupSwapButtonListener atualize o texto e a ação do botão
                 window.dispatchEvent(new Event('walletStatusChanged'));
                 
-                showMessage('Carteira conectada com sucesso!', 'success');
+                showMessage('Wallet connected successfully!', 'success');
 
                 return true;
             } else {
                 console.error('Falha crítica na inicialização ou mudança de rede.');
-                showMessage('Falha na conexão ou mudança de rede. Por favor, verifique sua MetaMask e tente novamente.', 'error');
+                showMessage('Connection failed or network changed. Please check your MetaMask and try again.', 'error');
                 await revokeConnection();
                 return false;
             }
 
         } catch (error) {
             console.error('Erro geral ao inicializar Web3:', error);
-            showMessage('Ocorreu um erro ao tentar conectar a carteira. Verifique a MetaMask e a rede e tente novamente. Detalhes no console.', 'error');
+            showMessage('An error occurred while trying to connect the wallet. Please check MetaMask and the network, then try again. See console for details.', 'error');
             await revokeConnection();
             return false;
         }
     } else {
-        showMessage('MetaMask não detectada. Por favor, instale a MetaMask para usar esta funcionalidade.', 'error');
+        showMessage('MetaMask not detected. Please install MetaMask to use this feature.', 'error');
         console.warn('window.ethereum não detectado.');
         return false;
     }
@@ -1859,7 +1859,7 @@ function setupEventListeners() {
     percentageButtons.forEach(button => {
         button.addEventListener('click', async () => {
             if (!web3 || !userAddress) {
-                showMessage('Por favor, conecte sua carteira primeiro para usar os botões de porcentagem.', 'warning');
+                showMessage('Please connect your wallet first to use the percentage buttons.', 'warning');
                 return;
             }
 
@@ -1873,7 +1873,7 @@ function setupEventListeners() {
             console.log(`Saldo atual (numérico) para cálculo de porcentagem: ${balance}`);
 
             if (isNaN(balance) || balance <= 0) {
-                showMessage('Saldo disponível insuficiente para usar os botões de porcentagem.', 'warning');
+                showMessage('Insufficient available balance to use the percentage buttons.', 'warning');
                 const fromAmountInput = document.getElementById('from-amount');
                 if (fromAmountInput) fromAmountInput.value = '';
                 const toAmountElement = document.getElementById('to-amount');
@@ -1886,10 +1886,10 @@ function setupEventListeners() {
     const gasReserve = await getDynamicGasReserve();
     amount = balance - gasReserve;
     if (amount <= 0) {
-        showMessage(`Saldo insuficiente para reservar o gás da transação.`, 'warning');
+        showMessage(`Insufficient balance to reserve gas for the transaction.`, 'warning');
         return;
     }
-    showMessage(`Reservado ${formatNumber(gasReserve)} BNB para gás.`, 'info');
+    showMessage(` ${formatNumber(gasReserve)} BNB reserved for gas.`, 'info');
 } else {
                 amount = (balance * percent / 100);
             }
@@ -2008,7 +2008,7 @@ function setupEventListeners() {
 async function buyTokens() {
     // Verificar se Web3, carteira e contrato estão inicializados
     if (!web3 || !userAddress || !preSaleContract) {
-        showMessage('Por favor, conecte sua carteira primeiro e verifique se está na rede correta (BSC Mainnet).', 'warning');
+        showMessage('Please connect your wallet first and make sure you are on the correct network (BSC Mainnet).', 'warning');
         console.warn('buyTokens chamado sem web3, userAddress ou preSaleContract inicializados.');
         return;
     }
@@ -2019,7 +2019,7 @@ async function buyTokens() {
 
     // Verificar se o valor é válido e maior que zero após desformatar
     if (!amount || parseFloat(amount) <= 0) {
-        showMessage('Por favor, insira um valor válido para comprar.', 'warning');
+        showMessage('Please enter a valid amount to purchase.', 'warning');
         return;
     }
 
@@ -2040,7 +2040,7 @@ async function buyTokens() {
          console.log(`Saldo atual: ${balance}, Valor da compra: ${numericAmount}`);
 
         if (isNaN(balance) || isNaN(numericAmount) || numericAmount > balance) {
-            showMessage(`Saldo insuficiente para a compra! Seu saldo atual é ${formatNumber(balance.toString())} ${selectedCurrency}`, 'warning');
+            showMessage(`Insufficient balance for the purchase! Your current balance is ${formatNumber(balance.toString())} ${selectedCurrency}`, 'warning');
              console.warn('Saldo insuficiente.');
             return;
         }
@@ -2085,13 +2085,13 @@ async function buyTokens() {
 
         } else {
              // Caso uma moeda inesperada esteja selecionada
-            showMessage('Moeda de pagamento não suportada.', 'warning');
+            showMessage('Payment currency not supported.', 'warning');
             console.error('Moeda de pagamento inesperada:', selectedCurrency);
             return;
         }
 
         // Se a transação de compra for enviada com sucesso (isso não significa que foi confirmada na blockchain)
-        showMessage('Transação de compra enviada com sucesso! Aguarde a confirmação na blockchain.', 'success');
+        showMessage('Purchase transaction sent successfully! Please wait for confirmation on the blockchain.', 'success');
         console.log('Transação de compra enviada.');
         await updateUI(); // Atualizar a UI após enviar a transação
 
@@ -2099,11 +2099,11 @@ async function buyTokens() {
         // Capturar erros que ocorrem durante a interação com a carteira ou contrato (ex: rejeição do usuário, erro de gás)
         console.error('Erro durante a compra de tokens:', error);
         // Mensagens de erro mais amigáveis baseadas no erro (opcional, pode ser complexo)
-        let errorMessage = 'Erro ao realizar a compra. Por favor, verifique a MetaMask e tente novamente.';
+        let errorMessage = 'Error during purchase. Please check MetaMask and try again.';
         if (error.message.includes('User denied transaction signature')) {
-            errorMessage = 'Transação rejeitada pelo usuário.';
+            errorMessage = 'Transaction rejected by the user.';
         } else if (error.message.includes('insufficient funds')) {
-             errorMessage = 'Saldo insuficiente na carteira para cobrir a transação (gás ou valor).';
+             errorMessage = 'Insufficient wallet balance to cover the transaction (gas or amount).';
         }
         showMessage(errorMessage, 'error');
     }
@@ -2121,7 +2121,7 @@ function setupSwapButtonListener() {
     // Função para atualizar texto e ação do botão
     async function updateSwapButtonLogic() {
         if (!userAddress || !web3 || !preSaleContract) { // Usar a variável global userAddress
-            newSwapBtn.textContent = 'Conectar Carteira';
+            newSwapBtn.textContent = 'Connect Wallet';
             newSwapBtn.onclick = async () => {
                 const connected = await initWeb3();
                 if (connected) {
@@ -2180,13 +2180,13 @@ function setupSwapButtonListener() {
                 try {
                     const allowance = await usdtContract.methods.allowance(userAddress, preSaleContractAddress).call();
                     if (parseFloat(allowance) < parseFloat(usdtAmount)) {
-                        newSwapBtn.textContent = 'Aprovar USDT';
+                        newSwapBtn.textContent = 'Approve USDT';
                         newSwapBtn.onclick = async (e) => {
                             e.preventDefault();
                             try {
-                                showMessage('Aguarde a aprovação na MetaMask...', 'info');
+                                showMessage('Waiting for approval in MetaMask...', 'info');
                                 await usdtContract.methods.approve(preSaleContractAddress, usdtAmount).send({ from: userAddress });
-                                showMessage('Aprovação de USDT realizada com sucesso!', 'success');
+                                showMessage('USDT approval completed successfully!', 'success');
                                 await updateSwapButtonLogic(); // Re-avaliar o estado do botão após a aprovação
                             } catch (error) {
                                 console.error('Erro ao aprovar USDT:', error);
@@ -2194,7 +2194,7 @@ function setupSwapButtonListener() {
                             }
                         };
                     } else {
-                        newSwapBtn.textContent = 'Comprar com USDT';
+                        newSwapBtn.textContent = 'Buy with USDT';
                         newSwapBtn.onclick = async (e) => {
                             e.preventDefault();
                             await buyTokens();
@@ -2202,13 +2202,13 @@ function setupSwapButtonListener() {
                     }
                 } catch (e) {
                     console.error('Erro ao verificar allowance do USDT:', e);
-                    newSwapBtn.textContent = 'Comprar com USDT'; // Fallback em caso de erro na verificação
+                    newSwapBtn.textContent = 'Buy with USDT'; // Fallback em caso de erro na verificação
                     newSwapBtn.onclick = async (e) => { e.preventDefault(); buyTokens(); };
-                    showMessage('Erro ao verificar aprovação de USDT. Tente novamente.', 'error');
+                    showMessage('Error checking USDT approval. Please try again.', 'error');
                 }
 
             } else if (selectedCurrency === 'BNB') {
-                newSwapBtn.textContent = 'Comprar com BNB';
+                newSwapBtn.textContent = 'Buy with BNB';
                 newSwapBtn.onclick = async (e) => {
                     e.preventDefault();
                     await buyTokens();
