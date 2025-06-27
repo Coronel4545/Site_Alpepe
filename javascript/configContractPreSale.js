@@ -1098,7 +1098,7 @@ async function updateUI() {
             const priceElement = document.querySelector('.price');
             if (priceElement) {
                 // Usar toFixed(3) para o preço, pois geralmente preços são exibidos com precisão fixa
-                priceElement.textContent = `Preço: $${alpepePriceUSD.toFixed(3)}`;
+                priceElement.textContent = `Price: $${alpepePriceUSD.toFixed(3)}`;
             }
        }
 
